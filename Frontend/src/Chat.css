@@ -1,0 +1,385 @@
+.chats {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 26px 0 8px;
+  scroll-behavior: smooth;
+}
+
+.chats::-webkit-scrollbar {
+  width: 7px;
+}
+
+.chats::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+}
+
+.chatContent {
+  width: 100%;
+  max-width: 920px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.welcomeWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 56px;
+  text-align: center;
+  position: relative;
+}
+
+.welcomeWrap::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.16), transparent 70%);
+  filter: blur(18px);
+  top: -30px;
+  left: 10%;
+  z-index: -1;
+}
+
+.welcomeWrap::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.14), transparent 70%);
+  filter: blur(20px);
+  right: 10%;
+  top: 24px;
+  z-index: -1;
+}
+
+.welcomeBadge {
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.12);
+  color: #b9d7ff;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+
+.welcome {
+  font-size: 40px;
+  line-height: 1.04;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #f8fbff;
+}
+
+.welcomeGradient {
+  background: linear-gradient(135deg, #93c5fd, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.welcomeSub {
+  margin-top: 14px;
+  max-width: 680px;
+  color: #92a3bf;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.promptGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.promptCard {
+  padding: 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: 0.22s ease;
+  text-align: left;
+  will-change: transform;
+}
+
+.promptCard:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.promptIcon {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.promptTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #eef5ff;
+}
+
+.promptDesc {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #90a2bd;
+  margin-top: 5px;
+}
+
+.messageRow {
+  display: flex;
+  width: 100%;
+  margin-bottom: 18px;
+  gap: 10px;
+}
+
+.userRow {
+  justify-content: flex-end;
+}
+
+.aiRow {
+  justify-content: flex-start;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.messageBlock {
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
+}
+
+.messageBubble {
+  max-width: 720px;
+  padding: 14px 16px;
+  border-radius: 20px;
+  line-height: 1.68;
+  font-size: 14px;
+  color: #e8f0fb;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  box-sizing: border-box;
+  transition: 0.2s ease;
+  will-change: transform;
+}
+
+.aiRow .messageBubble {
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.userRow .messageBubble {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.24), rgba(124, 58, 237, 0.2));
+  border: 1px solid rgba(89, 140, 255, 0.22);
+}
+
+.messageBubble p {
+  margin: 0;
+}
+
+.messageActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  padding-left: 4px;
+  flex-wrap: wrap;
+}
+
+.actionBtn {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  color: #cfe1ff;
+  border-radius: 11px;
+  padding: 7px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.actionBtn:hover {
+  background: rgba(255, 255, 255, 0.09);
+  transform: translateY(-1px);
+}
+
+.chat-response {
+  width: 100%;
+  line-height: 1.7;
+  color: #e6e6e6;
+  letter-spacing: -0.01em;
+  font-size: 0.93rem;
+}
+
+.chat-response p {
+  margin: 8px 0;
+  color: #e6e6e6;
+}
+
+.chat-response h1,
+.chat-response h2,
+.chat-response h3 {
+  color: #ffffff;
+  margin: 10px 0;
+}
+
+.chat-response ul,
+.chat-response ol {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.chat-response li {
+  margin: 5px 0;
+}
+
+.chat-response pre,
+pre {
+  background: #1e1e1e;
+  color: #dcdcdc;
+  padding: 12px;
+  border-radius: 12px;
+  overflow-x: auto;
+  margin: 10px 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chat-response code,
+code {
+  font-family: "Fira Code", monospace;
+  background-color: #2d2d2d;
+  color: #00ff9d;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-size: 0.83rem;
+}
+
+.sourceBox {
+  margin-top: 10px;
+  padding: 11px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sourceTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #d8e7ff;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.sourceList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sourceCard {
+  border-radius: 12px;
+  padding: 9px 11px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sourceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.sourceBadge {
+  font-size: 10px;
+  font-weight: 700;
+  color: #cfe1ff;
+  letter-spacing: 0.03em;
+}
+
+.confidenceBadge {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.sourceSnippet {
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: #9fb0cb;
+  word-break: break-word;
+}
+
+.sourceConfidenceWrap {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.confidenceLabel {
+  font-size: 11px;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.retrievalMeta {
+  margin-top: 7px;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+@media (max-width: 768px) {
+  .promptGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome {
+    font-size: 32px;
+  }
+
+  .welcomeSub {
+    font-size: 14px;
+  }
+
+  .messageBubble,
+  .messageBlock {
+    max-width: 100%;
+  }
+
+  .chatContent {
+    padding: 0 16px;
+  }
+}

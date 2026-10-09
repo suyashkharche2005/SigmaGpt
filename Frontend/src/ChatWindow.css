@@ -1,0 +1,388 @@
+.chatWindow {
+  flex: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+  background: transparent;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  flex-shrink: 0;
+  background: rgba(9, 14, 24, 0.45);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.brandBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.brandTitle {
+  font-size: 17px;
+  font-weight: 800;
+  color: #f8fbff;
+  letter-spacing: -0.02em;
+}
+
+.brandSub {
+  font-size: 11px;
+  color: #92a3bf;
+}
+
+.userIconDiv {
+  cursor: pointer;
+  padding: 9px 13px;
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #dce8fb;
+  transition: 0.2s ease;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.userIconDiv:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.modeBar {
+  display: flex;
+  gap: 9px;
+  padding: 12px 20px 6px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.modeChip {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: #bcd0ee;
+  border-radius: 999px;
+  padding: 9px 13px;
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.modeChip:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.modeChipActive {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(124, 58, 237, 0.18));
+  color: #eff6ff;
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+  flex-shrink: 0;
+}
+
+.chatInput {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 18px 14px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  background: linear-gradient(
+    to top,
+    rgba(8, 12, 22, 0.95),
+    rgba(8, 12, 22, 0.65),
+    transparent
+  );
+}
+
+.inputBox {
+  width: 100%;
+  max-width: 920px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 10px 32px rgba(0, 0, 0, 0.24),
+    0 0 22px rgba(124, 58, 237, 0.14);
+  transition: 0.22s ease;
+  will-change: transform;
+}
+
+.inputBox:hover {
+  border-color: rgba(255, 255, 255, 0.13);
+}
+
+.inputBox:focus-within {
+  border-color: rgba(59, 130, 246, 0.45);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.08);
+}
+
+.inputTools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 8px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+.inputTools i {
+  font-size: 15px;
+  color: #8ea0bd;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.inputTools i:hover {
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.micActive {
+  color: #ff7b7b !important;
+  text-shadow: 0 0 12px rgba(255, 123, 123, 0.45);
+  animation: pulseMic 1.1s infinite;
+}
+
+.micDisabled {
+  opacity: 0.45;
+  cursor: not-allowed !important;
+}
+
+@keyframes pulseMic {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.inputBox input {
+  flex: 1;
+  min-width: 0;
+  margin-left: 2px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #eef5ff;
+  font-size: 14px;
+}
+
+.inputBox input::placeholder {
+  color: #8ea0bd;
+}
+
+#submit {
+  width: 38px;
+  height: 38px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: linear-gradient(135deg, #3b82f6, #7c3aed);
+  color: #fff;
+  transition: 0.22s ease;
+  flex-shrink: 0;
+  box-shadow:
+    0 8px 18px rgba(59, 130, 246, 0.24),
+    0 0 20px rgba(124, 58, 237, 0.14);
+  will-change: transform;
+}
+
+#submit:hover {
+  transform: translateY(-1px) scale(1.03);
+}
+
+.info {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #8b9ab2;
+  text-align: center;
+}
+
+.documentBadge {
+  width: 100%;
+  max-width: 920px;
+  margin-bottom: 8px;
+  padding: 9px 11px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.documentBadgeLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #dce8fb;
+  min-width: 0;
+  font-size: 13px;
+}
+
+.documentBadgeLeft span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.removeDocBtn {
+  border: none;
+  background: transparent;
+  color: #b7c7df;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.loginAlertOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 14, 0.68);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5000;
+  backdrop-filter: blur(8px);
+}
+
+.loginAlertBox {
+  width: 370px;
+  max-width: 92%;
+  padding: 24px 22px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(17, 24, 39, 0.98), rgba(10, 15, 28, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.42);
+  text-align: center;
+}
+
+.loginAlertIcon {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 12px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(124, 58, 237, 0.16);
+  color: #d8c8ff;
+  font-size: 20px;
+}
+
+.loginAlertBox h3 {
+  margin: 0 0 8px;
+  color: #f8fbff;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.loginAlertBox p {
+  margin: 0 0 18px;
+  color: #9fb0c8;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.loginAlertActions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.loginAlertActions button {
+  min-width: 104px;
+  border: none;
+  border-radius: 13px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.loginAlertCancel {
+  background: rgba(255, 255, 255, 0.07);
+  color: #dbe7f8;
+}
+
+.loginAlertLogin {
+  background: linear-gradient(135deg, #3b82f6, #7c3aed);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 14px 16px;
+  }
+
+  .brandTitle {
+    font-size: 15px;
+  }
+
+  .brandSub {
+    font-size: 10px;
+  }
+
+  .modeBar {
+    padding: 10px 12px 4px;
+    gap: 8px;
+  }
+
+  .modeChip {
+    font-size: 12px;
+    padding: 8px 11px;
+  }
+
+  .chatInput {
+    padding: 12px 12px 14px;
+  }
+
+  .inputBox {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .inputTools {
+    gap: 7px;
+    padding-right: 6px;
+  }
+
+  .inputTools i {
+    font-size: 14px;
+  }
+
+  #submit {
+    width: 36px;
+    height: 36px;
+  }
+}

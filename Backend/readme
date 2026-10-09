@@ -1,0 +1,15 @@
+Features:
+- AI Chat (multi-mode: explain, code, summarize, debug)
+- Semantic PDF Search (RAG)
+- Confidence scoring with source chunks
+- Thread-based chat system
+- mutlit user-Authentication system
+- Streaming AI responses
+- Clean modern UI
+-cosine similarity manually instead of using direct vector db Pinecone
+Tech Stack:
+- React + Tailwind / CSS
+- Node.js + Express
+- MongoDB
+- OpenRouter (LLM)
+- Semantic Search (embeddings + cosine similarity)
